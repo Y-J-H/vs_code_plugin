@@ -17,7 +17,11 @@ export function activate(context: vscode.ExtensionContext) {
 		// The code you place here will be executed every time your command is executed
 
 		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from vs_code_plugin!');
+		vscode.window.showInformationMessage('vs code 插件开发!');
+
+		const time = new Date()
+
+		vscode.window.showWarningMessage(`${time}`)
 	});
 
 	context.subscriptions.push(disposable);
