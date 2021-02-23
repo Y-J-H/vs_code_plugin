@@ -1,0 +1,349 @@
+{
+	// Place your snippets for typescriptreact here. Each snippet is defined under a snippet name and has a prefix, body and
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"定义log": {
+		"prefix": "log",
+		"body": "console.log($1)$2"
+	},
+	"导入(模块, 插件, 方法等)": {
+		"prefix": "import",
+		"body": "import $1 from $2"
+	},
+	"创建简单的react模板": {
+		"prefix": "react",
+		"body": [
+			"import React from 'react'",
+			"",
+			"interface IProps {}",
+			"",
+			"const $1:React.FC<IProps> = props => {",
+			"  return <div>$2</div>",
+			"}",
+			"",
+			"export default $1"
+		],
+		"description": "Print react template"
+	},
+	"创建包含connect的react模版": {
+		"prefix": "re-connect",
+		"body": [
+			"import React from 'react'",
+			"import { connect } from 'umi'",
+			"import { IConnectProps, IConnectState } from '@/models/connect'",
+			"",
+			"interface IProps extends IConnectProps {}",
+			"",
+			"const $1:React.FC<IProps> = props => {",
+			"  $0",
+			"  return <div>$2</div>",
+			"}",
+			"export default connect(({ loading, $3 }: IConnectState) => ({",
+			"  ...$3,",
+			"  loading: loading.effects[xxx]",
+			"}))($1)"
+		]
+	},
+	"创建useState": {
+		"prefix": "useState",
+		"body": [
+			"const [$1, set$1] = useState<$2>($3)"
+		],
+		"description": "创建useState, 需要手动将set中的首字母改成大写"
+	},
+	"创建useEffect": {
+		"prefix": "useEffect",
+		"body": [
+			"useEffect(() => {",
+			"  $0",
+			"}, [$1])"
+		]
+	},
+	"创建useDispatch": {
+		"prefix": "useDispatch",
+		"body": [
+			"const dispatch = useDispatch()"
+		]
+	},
+	"创建useParams": {
+		"prefix": "useParams",
+		"body": [
+			"const { $2 } = useParams<$1>()"
+		]
+	},
+	"使用AntD Form创建form": {
+		"prefix": "useForm",
+		"body": [
+			"const [form] = Form.useForm()"
+		]
+	},
+	"创建connect": {
+		"prefix": "connect",
+		"body": [
+			"export default connect(({ $1 }: IConnectState) => ({",
+			"  ...$1",
+			"}))($2)"
+		]
+	},
+	"定义const": {
+		"prefix": "const",
+		"body": [
+			"const $1 = $2"
+		]
+	},
+	"定义let": {
+		"prefix": "let",
+		"body": [
+			"let $1 = $2"
+		]
+	},
+	"定义解构的const": {
+		"prefix": "const_d",
+		"body": [
+			"const { $2 } = $1"
+		]
+	},
+	"定义解构的let": {
+		"prefix": "let_d",
+		"body": [
+			"let { $2 } = $1"
+		]
+	},
+	"获取URL中查询参数": {
+		"prefix": "searchParams",
+		"body": [
+			"const searchParams = getSearchParams(window.location.search)",
+			"const { page = 1, limit = 10, ...resetParams } = searchParams"
+		]
+	},
+	"创建箭头函数": {
+		"prefix": "arrow",
+		"body": [
+			"($1) => {",
+			"  $2",
+			"}"
+		]
+	},
+	"创建带const的箭头函数": {
+		"prefix": "arrow_c",
+		"body": [
+			"const $1 = ($2) => {",
+			"  $0",
+			"}"
+		]
+	},
+	"创建dispatch": {
+		"prefix": "dispatch",
+		"body": [
+			"dispatch({",
+			"  type: $1,",
+			"  payload: {$2}",
+			"})"
+		]
+	},
+	"创建callback": {
+		"prefix": "callback",
+		"body": [
+			"callback: ($1) => {",
+			"  $2",
+			"}"
+		]
+	},
+	"创建表格 columns": {
+		"prefix": "columns",
+		"body": [
+			"const columns: ColumnProps<$1>[] = [",
+			"  $2",
+			"]"
+		]
+	},
+	"创建表格 columns项": {
+		"prefix": "column_item",
+		"body": [
+			"{",
+			"  title: '$1',",
+			"  dataIndex: '$2'",
+			"}"
+		]
+	},
+	"创建表格 columns项, 包含render": {
+		"prefix": "column_item_r",
+		"body": [
+			"{",
+			"  title: '$1',",
+			"  dataIndex: '$2',",
+			"  render: (_$3, record) => {",
+			"    return $4",
+			"  }",
+			"}"
+		]
+	},
+	"创建 if": {
+		"prefix": "if",
+		"body": [
+			"if ($1) {",
+			"  $2",
+			"}"
+		]
+	},
+	"定义interface": {
+		"prefix": "interface",
+		"body": [
+			"export interface I$1 {$2}"
+		]
+	},
+	"创建formList": {
+		"prefix": "formList",
+		"body": [
+			"const formList: IFormList[] = [$0]"
+		]
+	},
+	"创建formList项": {
+		"prefix": "formItem",
+		"body": [
+			"{",
+			"  type: '$1',",
+			"  itemProps: {",
+			"    label: '$2',",
+			"    name: '$3',",
+			"    rules: [{ required: true, whitespace: true }]",
+			"  },",
+			"  controlledProps: {}",
+			"}"
+		]
+	},
+	"创建MSTitle": {
+		"prefix": "MSTitle",
+		"body": [
+			"<MSTitle title='$1'></MSTitle>"
+		]
+	},
+	"创建MSTitle, 包含报表导出": {
+		"prefix": "MSTitle",
+		"body": [
+			"<MSTitle title='$1'>",
+			"  <Button type='primary' onClick={handleExport}>",
+			"    报表导出",
+			"  </Button>",
+			"</MSTitle>"
+		]
+	},
+	"创建MSQuery": {
+		"prefix": "MSQuery",
+		"body": [
+			"<MSQuery conditions={condition} />"
+		]
+	},
+	"创建MSQuery的condition": {
+		"prefix": "condition",
+		"body": [
+			"const condition: ICondition<QueryType>[] = [$1]",
+		]
+	},
+	"创建condition内部list项": {
+		"prefix": "condition_select",
+		"body": [
+			"{",
+			"  label: '$1',",
+			"  defaultValue: $2,",
+			"  options: $3,",
+			"  itemProps: {",
+			"    showSearch: false,",
+			"    width: 180",
+			"  },",
+			"  onChange: (value: $4) => updateQueryAndFetch({ $5 })",
+			"}"
+		]
+	},
+	"创建 useQueryAndFetch": {
+		"prefix": "useQueryAndFetch",
+		"body": [
+			"const { query, updateQueryAndFetch } = useQueryAndFetch<IQuery>(initQuery, $1)"
+		]
+	},
+	"创建 MSSearch": {
+		"prefix": "MSSearch",
+		"body": [
+			"<MSSearch",
+			"  placeholder='$1'",
+			"  value={query.pattern}",
+			"  onSearch={(val: string) => updateQueryAndFetch({ pattern: val })}",
+			"/>"
+		]
+	},
+	"创建MSTable": {
+		"prefix": "MSTable",
+		"body": [
+			"<MSTable data={tableData} onChange={handleTableChange} columns={columns} />"
+		]
+	},
+	"创建MSProTable": {
+		"prefix": "MSProTable",
+		"body": [
+			"<MSProTable data={tableData} onChange={handleTableChange} columns={columns} />"
+		]
+	},
+	"创建handleTableChange": {
+		"prefix": "handleTableChange",
+		"body": [
+			"const handleTableChange = ({ current, pageSize }: TablePaginationConfig) => {",
+			"  updateQueryAndFetch({",
+			"    page: current,",
+			"    limit: pageSize",
+			"  })",
+			"}"
+		]
+	},
+	"创建MSAboutLayout": {
+		"prefix": "MSAboutLayout",
+		"body": [
+			"<MSAboutLayout label='$1' value={$2} />$0"
+		]
+	},
+	"创建MSForm": {
+		"prefix": "MSForm",
+		"body": [
+			"<MSForm form={form} formList={formList} colon={false} />"
+		]
+	},
+	"创建initQuery": {
+		"prefix": "initQuery",
+		"body": [
+			"const initQuery = {",
+			"  page: Number(page),",
+			"  limit: Number(limit),",
+			"  ...resetParams",
+			"}"
+		]
+	},
+	"code review 注释":{
+		"prefix": "cr",
+		"body": [
+			"// TODO: CODE REVIEW YJH: $1"
+		]
+	},
+	"创建 Modal": {
+		"prefix": "modal",
+		"body": [
+			"import React, { useEffect } from 'react'",
+			"import { connect, useDispatch } from 'umi'",
+			"import { IConnectProps, IConnectState } from '@/models/connect'",
+			"import { Modal } from 'antd'",
+			"",
+			"export interface IProps extends IConnectProps {",
+			"  visible: boolean",
+			"  setVisible: React.Dispatch<React.SetStateAction<boolean>>",
+			"}"
+		]
+	}
+}

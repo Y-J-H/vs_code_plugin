@@ -8,7 +8,7 @@
 		"vscode": "^1.53.0"
 	},
 	"categories": [
-		"Other"
+		"Snippets"
 	],
 	"activationEvents": [
         "onCommand:vs-code-plugin.helloWorld"
@@ -19,6 +19,16 @@
 			{
 				"command": "vs-code-plugin.helloWorld",
 				"title": "Hello World"
+			}
+		],
+		"snippets": [
+			{
+				"language": "typescript",
+				"path": "./snippets/typescript.json"
+			},
+			{
+				"language": "typescriptreact",
+				"path": "./snippets/typescriptreact.json"
 			}
 		]
 	},
